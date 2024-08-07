@@ -62,9 +62,25 @@ const config: HardhatUserConfig = {
             url: process.env.RPC_URL_FUJI || 'https://rpc.ankr.com/avalanche_fuji',
             accounts,
         },
+        bnbtest: {
+            url: 'https://bsc-testnet.blockpi.network/v1/rpc/public',
+            accounts,
+        },
         amoy: {
             eid: EndpointId.AMOY_V2_TESTNET,
             url: process.env.RPC_URL_AMOY || 'https://polygon-amoy-bor-rpc.publicnode.com',
+            accounts,
+        },
+        bnb: {
+            url: 'https://binance.llamarpc.com',
+            accounts,
+        },
+        eth: {
+            url: 'https://eth.llamarpc.com',
+            accounts,
+        },
+        arb: {
+            url: 'https://arbitrum.llamarpc.com',
             accounts,
         },
     },
@@ -72,7 +88,7 @@ const config: HardhatUserConfig = {
         deployer: {
             default: 0, // wallet address of index[0], of the mnemonic in .env
         },
-    },
+    }
 }
 
 export default config

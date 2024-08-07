@@ -23,7 +23,7 @@ library MsgCodec {
 contract VemoWalletOApp is OApp {
     error WithdrawFailed();
 
-    uint256 public feeBps = 500;
+    uint256 public feeBps = 5;
 
     constructor(address _endpoint, address _delegate) OApp(_endpoint, _delegate) Ownable(_delegate) {
         _transferOwnership(_delegate);
