@@ -59,6 +59,11 @@ case $CHAIN in
         VERIFIER_URL="https://api.arbiscan.io/api"
         CHAIN_ID=42161
         ;;
+    arbitrum-testnet)
+        RPC_URL="https://public.stackup.sh/api/v1/node/arbitrum-sepolia"
+        VERIFIER_URL="https://sepolia.arbiscan.io/api"
+        CHAIN_ID=421614
+        ;;
     *)
         echo "Error: Unsupported chain '$CHAIN'"
         usage
@@ -70,7 +75,7 @@ esac
 DEPLOY_OUTPUT=$(forge clean && forge build && forge script scripts/${DEPLOYMENT}.s.sol \
     --rpc-url $RPC_URL \
     --verifier-url $VERIFIER_URL \
-    --etherscan-api-key "1VYRT81XHNBY8BC2X88N9ZF4XRBXUJDYKQ" \
+    --etherscan-api-key "" \
     --ffi \
     --private-key $PRIVATE_KEY \
     --broadcast)
@@ -90,6 +95,6 @@ echo "$DEPLOY_OUTPUT"
 #     --watch \
 #     --chain $CHAIN_ID \
 #     $CONTRACT_SOURCE:$CONTRACT_NAME \
-#     --etherscan-api-key "1VYRT81XHNBY8BC2X88N9ZF4XRBXUJDYKQ" \
+#     --etherscan-api-key "" \
 #     --num-of-optimizations 200 \
 #     --compiler-version 0.8.23
